@@ -1,13 +1,13 @@
-defmodule ShopBackendWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :shop_backend
+defmodule ShopWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :shop
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_shop_backend_key",
-    signing_salt: "cU8iZTz3",
+    key: "_shop_key",
+    signing_salt: "r3GN4H59",
     same_site: "Lax"
   ]
 
@@ -19,15 +19,15 @@ defmodule ShopBackendWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :shop_backend,
+    from: :shop,
     gzip: false,
-    only: ShopBackendWeb.static_paths()
+    only: ShopWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :shop_backend
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :shop
   end
 
   plug Plug.RequestId
@@ -41,5 +41,5 @@ defmodule ShopBackendWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug ShopBackendWeb.Router
+  plug ShopWeb.Router
 end

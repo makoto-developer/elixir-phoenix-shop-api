@@ -1,11 +1,11 @@
 import Config
 
 # Configure your database
-config :shop_backend, ShopBackend.Repo,
+config :shop, Shop.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "shop_backend_dev",
+  database: "shop_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -16,14 +16,14 @@ config :shop_backend, ShopBackend.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :shop_backend, ShopBackendWeb.Endpoint,
+config :shop, ShopWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "57CJBaC/yLkCp5MIMvXQhF9c+tc8hx8JvuXsLRUk9IkeR8X1+aaga0ygzvcJkcdN",
+  secret_key_base: "V4MhPGV4DoFbEvMNiE8bk90XchF8LN4B4J8keS8/p6d2dU1RQcWgfCtozQFT3uai",
   watchers: []
 
 # ## SSL Support
@@ -50,7 +50,7 @@ config :shop_backend, ShopBackendWeb.Endpoint,
 # different ports.
 
 # Enable dev routes for dashboard and mailbox
-config :shop_backend, dev_routes: true
+config :shop, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

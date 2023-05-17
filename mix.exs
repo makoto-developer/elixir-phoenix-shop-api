@@ -1,9 +1,9 @@
-defmodule ShopBackend.MixProject do
+defmodule Shop.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :shop_backend,
+      app: :shop,
       version: "0.1.0",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -18,7 +18,7 @@ defmodule ShopBackend.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {ShopBackend.Application, []},
+      mod: {Shop.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

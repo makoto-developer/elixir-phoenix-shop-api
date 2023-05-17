@@ -1,12 +1,12 @@
-defmodule ShopBackendWeb do
+defmodule ShopWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use ShopBackendWeb, :controller
-      use ShopBackendWeb, :html
+      use ShopWeb, :controller
+      use ShopWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -39,7 +39,7 @@ defmodule ShopBackendWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: ShopBackendWeb.Layouts]
+        layouts: [html: ShopWeb.Layouts]
 
       import Plug.Conn
 
@@ -50,9 +50,9 @@ defmodule ShopBackendWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: ShopBackendWeb.Endpoint,
-        router: ShopBackendWeb.Router,
-        statics: ShopBackendWeb.static_paths()
+        endpoint: ShopWeb.Endpoint,
+        router: ShopWeb.Router,
+        statics: ShopWeb.static_paths()
     end
   end
 

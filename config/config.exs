@@ -7,18 +7,18 @@
 # General application configuration
 import Config
 
-config :shop_backend,
-  ecto_repos: [ShopBackend.Repo]
+config :shop,
+  ecto_repos: [Shop.Repo]
 
 # Configures the endpoint
-config :shop_backend, ShopBackendWeb.Endpoint,
+config :shop, ShopWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [
-    formats: [json: ShopBackendWeb.ErrorJSON],
+    formats: [json: ShopWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: ShopBackend.PubSub,
-  live_view: [signing_salt: "8ZIdnPEt"]
+  pubsub_server: Shop.PubSub,
+  live_view: [signing_salt: "5HQAilDU"]
 
 # Configures Elixir's Logger
 config :logger, :console,

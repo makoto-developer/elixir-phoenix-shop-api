@@ -1,4 +1,4 @@
-defmodule ShopBackend.Application do
+defmodule Shop.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,20 +9,20 @@ defmodule ShopBackend.Application do
   def start(_type, _args) do
     children = [
       # Start the Telemetry supervisor
-      ShopBackendWeb.Telemetry,
+      ShopWeb.Telemetry,
       # Start the Ecto repository
-      ShopBackend.Repo,
+      Shop.Repo,
       # Start the PubSub system
-      {Phoenix.PubSub, name: ShopBackend.PubSub},
+      {Phoenix.PubSub, name: Shop.PubSub},
       # Start the Endpoint (http/https)
-      ShopBackendWeb.Endpoint
-      # Start a worker by calling: ShopBackend.Worker.start_link(arg)
-      # {ShopBackend.Worker, arg}
+      ShopWeb.Endpoint
+      # Start a worker by calling: Shop.Worker.start_link(arg)
+      # {Shop.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: ShopBackend.Supervisor]
+    opts = [strategy: :one_for_one, name: Shop.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -30,7 +30,7 @@ defmodule ShopBackend.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    ShopBackendWeb.Endpoint.config_change(changed, removed)
+    ShopWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end
