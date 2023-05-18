@@ -25,3 +25,10 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 shop-*.tar
 
+# editor
+.idea
+
+# env
+.env
+.env*
+!.env.example

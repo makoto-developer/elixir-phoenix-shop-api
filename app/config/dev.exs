@@ -2,10 +2,11 @@ import Config
 
 # Configure your database
 config :shop, Shop.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("SHOP_API_SERVER_PSQL_USER"),
+  password: System.get_env("SHOP_API_SERVER_PSQL_PASSWORD"),
   hostname: "localhost",
-  database: "shop_dev",
+  database: System.get_env("SHOP_API_SERVER_PSQL_DB_NAME"),
+  port: System.get_env("SHOP_API_SERVER_PSQL_DB_PORT"),
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -19,7 +20,7 @@ config :shop, Shop.Repo,
 config :shop, ShopWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: 4000],
+  http: [ip: {127, 0, 0, 1}, port: System.get_env("SHOP_API_SERVER_APP_PORT") || "4000"],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
